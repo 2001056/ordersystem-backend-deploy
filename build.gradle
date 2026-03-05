@@ -1,0 +1,51 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.5.9'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.beyond'
+version = '0.0.1-SNAPSHOT'
+description = 'ordersystem project for Spring Boot'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
+	implementation 'software.amazon.awssdk:s3:2.29.50'
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+//    swagger사용하기위한 의존성 추가
+//    접속 url: http://localhost:8080swagger-ui.html
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
+
+//    재고관련 rdb동기화작업을 이벤트기반 비동기적으로 처리하기 위한 rabbitmq의존성 추가
+//    implementation 'org.springframework.boot:spring-boot-starter-amqp'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
