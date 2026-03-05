@@ -62,7 +62,7 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource(){
         CorsConfiguration configuration = new CorsConfiguration();
 //        허용가능한 도메인 목록 설정
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000", "https://www.bradkim.shop"));
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000", "https://www.nahcb572.shop"));
 //        모든 HTTP메서드(GET, POST, OPTIONS 등) 허용
         configuration.setAllowedMethods(Arrays.asList("*"));
 //        모든 헤더요소(Authorization, Content-Type 등) 허용
